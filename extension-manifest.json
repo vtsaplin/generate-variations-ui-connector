@@ -1,0 +1,30 @@
+{
+  "name": "generate-variations-cf-connector-admin",
+  "id": "generate-variations-cf-connector-admin",
+  "description": "generate-variations-cf-connector-admin",
+  "version": "0.0.1",
+  "headerMenuButtons": [
+    {
+      "label": "Test",
+      "needsModal": false,
+      "id": "test"
+    },
+    {
+      "label": "Test",
+      "needsModal": false,
+      "id": "xsces-test"
+    },
+    {
+      "label": "Test 3",
+      "needsModal": false,
+      "id": "test-3"
+    }
+  ],
+  "actionBarButtons": [
+    {
+      "label": "Test 2",
+      "needsModal": false,
+      "id": "test-2"
+    }
+  ]
+}
