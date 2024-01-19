@@ -19,8 +19,13 @@ function ExtensionRegistration() {
                 id: 'test1',
                 label: 'Test1',
                 icon: 'OpenIn',
-                onClick() {
+                async onClick() {
                   console.log("Button 'test1' has been pressed.");
+                  const contentFragment = await guestConnection.host.contentFragment.getContentFragment();
+                  console.log(contentFragment);
+                  const context = guestConnection.sharedContext;
+                  const aemHost = context.get("aemHost");
+                  console.log(aemHost);
                 },
               },
               {

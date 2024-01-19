@@ -34,9 +34,19 @@ function ExtensionRegistration() {
                 'id': 'generate-variations-header-menu',
                 'label': 'Generate Variations',
                 'icon': 'OpenIn',
-                onClick(params) {
-                  console.log('params', params);
-                  window.open("https://experience-qa.adobe.com/?shell_source=local&devMode=true&shell_ims=prod#/@sitesinternal/aem/generate-variations/", "_blank");
+                async onClick() {
+                  const context = guestConnection.sharedContext;
+                  const aemHost = context.get("aemHost");
+                  console.log(`aemHost: ${aemHost}`);
+
+                  const contentFragment = await guestConnection.host.contentFragment.getContentFragment();
+                  console.log(`contentFragment: ${JSON.stringify(contentFragment)}`);
+
+                  const fragmentId = contentFragment.fragmentId;
+                  console.log(`fragmentId: ${fragmentId}`);
+
+                  window.open(`https://experience-stage.adobe.com/?shell_ims=prod&aemHost=${aemHost}&fragmentId=${fragmentId}#/@sitesinternal/aem/generate-variations/`, "_blank");
+                  // window.open(`https://experience-qa.adobe.com/?shell_source=local&devMode=true&shell_ims=prod&aemHost=${aemHost}&fragmentId=${fragmentId}#/@sitesinternal/aem/generate-variations/`, "_blank");
                 },
               },
             ];
